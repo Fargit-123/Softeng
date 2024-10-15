@@ -1,6 +1,10 @@
-check Feature login
-Git test 
-Git test 2
-Git test 3
-test 3
-test git 5
+USERNAME = "admin"
+PASSWORD = "password123"
+
+def login():
+    print("Welcome! Please log in.")
+    
+
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+    
