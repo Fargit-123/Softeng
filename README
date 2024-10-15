@@ -1,2 +1,6 @@
 USERNAME = "admin"
 PASSWORD = "password123"
+
+def login():
+    print("Welcome! Please log in.")
+    
