@@ -1,10 +1,8 @@
-USERNAME = "admin"
-PASSWORD = "password123"
+if username == USERNAME and password == PASSWORD:
+        print("Login successful! Welcome, admin.")
+    else:
+        print("Invalid username or password. Please try again.")
 
-def login():
-    print("Welcome! Please log in.")
-    
 
-    username = input("Enter username: ")
-    password = input("Enter password: ")
-    
+if _name_ == "_main_":
+    login()
