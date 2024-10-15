@@ -1,8 +1,20 @@
+
 USERNAME = "admin"
 PASSWORD = "password123"
 
 def login():
     print("Welcome! Please log in.")
     
+   
     username = input("Enter username: ")
     password = input("Enter password: ")
+
+ 
+    if username == USERNAME and password == PASSWORD:
+        print("Login successful! Welcome, admin.")
+    else:
+        print("Invalid username or password. Please try again.")
+
+
+if __name__ == "__main__":
+    login()
