@@ -12,3 +12,14 @@ cursor.execute('''
     )
 ''')
 
+def insert_feature(feature_name, feature_description):
+    cursor.execute('''
+        INSERT INTO features (feature_name, feature_description)
+        VALUES (?, ?)
+    ''', (feature_name, feature_description))
+    conn.commit()
+
+def fetch_features():
+    cursor.execute('SELECT * FROM features')
+    return cursor.fetchall()
+
