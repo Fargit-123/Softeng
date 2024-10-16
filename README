@@ -30,4 +30,4 @@ features = fetch_features()
 for feature in features:
     print(f'ID: {feature[0]}, Name: {feature[1]}, Description: {feature[2]}, Created At: {feature[3]}')
 
-conn.close()
+
