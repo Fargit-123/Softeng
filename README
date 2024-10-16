@@ -1,20 +1,36 @@
-//Create a login page
+import sqlite3
+
 USERNAME = "admin"
 PASSWORD = "password123"
 
-def login():
-    print("Welcome! Please log in.")
-    
-   
-    username = input("Enter username: ")
-    password = input("Enter password: ")
+conn = sqlite3.connect('feature_database.db')
+cursor = conn.cursor()
 
- 
-    if username == USERNAME and password == PASSWORD:
-        print("Login successful! Welcome, admin.")
-    else:
-        print("Invalid username or password. Please try again.")
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS features (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        feature_name TEXT NOT NULL,
+        feature_description TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+''')
 
+def insert_feature(feature_name, feature_description):
+    cursor.execute('''
+        INSERT INTO features (feature_name, feature_description)
+        VALUES (?, ?)
+    ''', (feature_name, feature_description))
+    conn.commit()
 
-if __name__ == "__main__":
-    login()
+def fetch_features():
+    cursor.execute('SELECT * FROM features')
+    return cursor.fetchall()
+
+insert_feature('Login System', 'Allows users to log in')
+insert_feature('Search Functionality', 'Allows users to search for content')
+
+conn.close()
+
+features = fetch_features()
+for feature in features:
+    print(f'ID: {feature[0]}, Name: {feature[1]}, Description: {feature[2]}, Created At: {feature[3]}')
