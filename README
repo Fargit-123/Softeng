@@ -1,4 +1,4 @@
-
+//Create a login page
 USERNAME = "admin"
 PASSWORD = "password123"
 
