@@ -23,3 +23,11 @@ def fetch_features():
     cursor.execute('SELECT * FROM features')
     return cursor.fetchall()
 
+insert_feature('Login System', 'Allows users to log in')
+insert_feature('Search Functionality', 'Allows users to search for content')
+
+features = fetch_features()
+for feature in features:
+    print(f'ID: {feature[0]}, Name: {feature[1]}, Description: {feature[2]}, Created At: {feature[3]}')
+
+conn.close()
