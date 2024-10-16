@@ -26,6 +26,8 @@ def fetch_features():
 insert_feature('Login System', 'Allows users to log in')
 insert_feature('Search Functionality', 'Allows users to search for content')
 
+conn.close()
+
 features = fetch_features()
 for feature in features:
     print(f'ID: {feature[0]}, Name: {feature[1]}, Description: {feature[2]}, Created At: {feature[3]}')
