@@ -1,20 +1,14 @@
+import sqlite3
 
-USERNAME = "admin"
-PASSWORD = "password123"
+conn = sqlite3.connect('feature_database.db')
+cursor = conn.cursor()
 
-def login():
-    print("Welcome! Please log in.")
-    
-   
-    username = input("Enter username: ")
-    password = input("Enter password: ")
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS features (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        feature_name TEXT NOT NULL,
+        feature_description TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+''')
 
- 
-    if username == USERNAME and password == PASSWORD:
-        print("Login successful! Welcome, admin.")
-    else:
-        print("Invalid username or password. Please try again.")
-
-
-if __name__ == "__main__":
-    login()
