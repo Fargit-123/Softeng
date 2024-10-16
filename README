@@ -1,5 +1,8 @@
 import sqlite3
 
+USERNAME = "admin"
+PASSWORD = "password123"
+
 conn = sqlite3.connect('feature_database.db')
 cursor = conn.cursor()
 
@@ -31,4 +34,3 @@ conn.close()
 features = fetch_features()
 for feature in features:
     print(f'ID: {feature[0]}, Name: {feature[1]}, Description: {feature[2]}, Created At: {feature[3]}')
-
